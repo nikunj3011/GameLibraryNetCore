@@ -54,8 +54,18 @@ namespace GameLibraryNetCore
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllerRoute(
+                    name: "GameLibraryDetails",
+                    pattern: "Game/{id?}",
+                    defaults: new { controller = "GameLibraries", action = "Details" });
+
+                endpoints.MapControllerRoute(
+                    name: "GameSystemDetails",
+                    pattern: "GameSystem/{id?}",
+                    defaults: new { controller = "GameSystems", action = "Details" });
+
+                endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller=Home}/{action=Index}/{id?}");
+                    pattern: "{controller=Home}/{action=Index}/{id?}");                
             });
         }
     }
